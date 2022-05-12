@@ -1,5 +1,4 @@
 from django.shortcuts import redirect, render
-from requests import request
 from contatos.forms import ContatoForm, GrupoContatosForm
 
 from contatos.models import Contato, GrupoContatos

@@ -111,10 +111,20 @@ td button .bi-trash:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.318);
 }
 
+#container-edicaoGrupoContato {
+    background-color: #f6f6f6;
+    width: 450px;
+    height: 350px;
+    margin: 30px auto 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.318);
+}
+
 #container-inclusaoGrupoContatos {
     background-color: #f6f6f6;
     width: 450px;
-    height: 200px;
+    height: 220px;
     margin: 30px auto 0 auto;
     padding: 20px;
     border-radius: 10px;
@@ -154,6 +164,19 @@ p input {
     border-top: none;
     border-right: none;
     border-left: none;
+}
+
+p select {
+    background-color: #F5F5F5;
+    width: 300px;
+    height: 25px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.formCancelar {
+    text-decoration: none;
 }
 
 .div-campo input:focus {}
@@ -199,6 +222,7 @@ hr {
 #containerGrupo h5 {
     margin: 0;
 }
+
 
 #adcNovoGrupo {
     display: block;

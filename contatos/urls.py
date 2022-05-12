@@ -1,9 +1,8 @@
 from django.urls import path
 from . import views
 
-
 urlpatterns = [
-
+    # Grupo de Contatos
     path('contato/grupoContatos', views.grupoContatos, name="grupoContatos"),
     path('contato/grupoContatos/add',
          views.grupoContatos_add, name="grupoContatos_add"),
@@ -12,6 +11,7 @@ urlpatterns = [
     path('contato/grupoContatos/delete/<int:grupoContatos_pk>',
          views.grupoContatos_delete, name="grupoContatos_delete"),
 
+    # Contato
     path('contato/', views.contato, name="contato"),
     path('contato/add/', views.contato_add, name="contato_add"),
     path('contato/edit/<int:contato_pk>',

@@ -3,7 +3,6 @@
 {% block titulo %}Adicionar Contato{% endblock titulo %}
 
 {% block main %}
-
 <div id="container-inclusaoContato">
     <h3>Inclusão de um novo contato</h3>
     <form action="{% url 'contato_add' %}" method="post">
@@ -11,9 +10,8 @@
         {{ form.as_p }}
         <div>
             <button type="submit">Cadastrar</button>
-            <a href="{% url 'contato' %}">Cancelar</a>
+            <a class="formCancelar" href="{% url 'contato' %}">Cancelar</a>
         </div>
     </form>
 </div>
-
 {% endblock main %}

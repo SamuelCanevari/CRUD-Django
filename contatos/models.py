@@ -1,6 +1,3 @@
-from datetime import date
-from pyexpat import model
-from typing_extensions import Required
 import django
 from django.db import models
 
@@ -13,9 +10,7 @@ class GrupoContatos(models.Model):
         return self.titulo
 
 
-class Contato(models.Model):  # campos para a tabela
-
-    data_criacao = date.today()
+class Contato(models.Model):
 
     nome = models.CharField(max_length=100)
     telefone = models.PositiveIntegerField()

@@ -3,15 +3,13 @@
 {% block titulo %}Editar Contato{% endblock titulo %}
 
 {% block main %}
-
 <div id="container-inclusaoContato">
     <h3>Edição de {{contato.nome}}</h3>
     <form action="{% url 'contato_edit' contato.id %}" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Editar</button>
-        <a href="{% url 'contato' %}">Cancelar</a>
+        <a class="formCancelar" href="{% url 'contato' %}">Cancelar</a>
     </form>
 </div>
-
 {% endblock main %}

@@ -1,5 +1,4 @@
 from faulthandler import disable
-from tkinter import Widget
 from attr import field
 from django import forms
 
@@ -30,7 +29,7 @@ class ContatoForm(forms.ModelForm):
             'numero': forms.NumberInput(attrs={'id': 'input-numero'}),
             'bairro': forms.TextInput(attrs={'id': 'input-bairro'}),
             'cep': forms.NumberInput(attrs={'id': 'input-cep'}),
-            'estado': forms.Select(attrs={'class': 'input-campo', 'id': 'input-estado'}),
-            'cidade': forms.Select(attrs={'class': 'input-campo', 'id': 'input-cidade'}),
+            'estado': forms.TextInput(attrs={'id': 'input-estado'}),
+            'cidade': forms.TextInput(attrs={'id': 'input-cidade'}),
             'grupoCliente': forms.NumberInput(attrs={'id': 'input-numero'}),
         }

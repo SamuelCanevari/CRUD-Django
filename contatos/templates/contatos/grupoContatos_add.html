@@ -3,7 +3,6 @@
 {% block titulo %}Criar Grupo de Contatos{% endblock titulo %}
 
 {% block main %}
-
 <div id="container-inclusaoGrupoContatos">
     <h3>Criar novo Grupo de Contatos</h3>
     <form action="{% url 'grupoContatos_add' %}" method="post">
@@ -13,5 +12,4 @@
         <a href="{% url 'grupoContatos' %}">Cancelar</a>
     </form>
 </div>
-
 {% endblock main %}

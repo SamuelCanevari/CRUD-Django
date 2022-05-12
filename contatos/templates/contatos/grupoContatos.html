@@ -41,7 +41,7 @@
         <h5>{{grupoContatos.titulo}}</h5>
         <p>Descrição: {{grupoContatos.descricao}}</p>
         <button type="button" class="btn btn-warning">
-            <a href="{% url 'grupoContatos_edit' grupoContatos.id %}">Editar</a>
+            <a id="edit" href="{% url 'grupoContatos_edit' grupoContatos.id %}">Editar</a>
         </button>
         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
             data-bs-target="#modalExcluir{{ grupoContatos.id }}">
