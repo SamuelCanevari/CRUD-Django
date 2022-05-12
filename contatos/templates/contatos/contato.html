@@ -1,0 +1,134 @@
+{% extends 'template.html' %}
+
+{% block titulo %}Página inicial{% endblock titulo %}
+
+
+{% block modal %}
+{% for contato in contatos %}
+<!-- MODAL VISUALIZAR -->
+<div class="modal fade" tabindex="-1" id="modalVisualizar{{ contato.id }}" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-eye-fill"></i> Visualizar informações de {{ contato.nome }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div style="display: inline-block;">
+                    <p class="titulo-modal-visualizar"><strong>Telefone</strong></p>
+                    <p>{{ contato.telefone }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>E-mail</strong></p>
+                    <p>{{ contato.email }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>CEP</strong></p>
+                    <p>{{ contato.cep }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>Bairro</strong></p>
+                    <p>{{ contato.bairro }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>Endereço</strong></p>
+                    <p>{{ contato.endereco }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>Número</strong></p>
+                    <p>{{ contato.numero }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>Estado</strong></p>
+                    <p>{{ contato.estado }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>Cidade</strong></p>
+                    <p>{{ contato.cidade }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>Grupo de Contato</strong></p>
+                    <p>{{ contato.grupoContato }}</p>
+                </div>
+                <div>
+                    <p class="titulo-modal-visualizar"><strong>Data de Cadastro</strong></p>
+                    <p>{{ contato.dataCadastro }}</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MODAL EXCLUIR -->
+<div class="modal fade" tabindex="-1" id="modalExcluir{{ contato.id }}" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-trash-fill"></i> Confimar exclusão</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="p-modalExcluir">Tem certeza que deseja excluir <br>{{ contato.nome }}?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-danger">
+                    <a id="texto-btn-excluir" href="{% url 'contato_delete' contato.id %}">Sim, excluir</a>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock modal %}
+
+
+{% block main %}
+<div id="campo-consulta">
+    <form action="." method="GET">
+        <h3>Consulta</h3>
+        <input type="text" id="search" name="search" placeholder="Buscar por nome ..." autofocus>
+        <p id="p-consulta">vazio + enter para listar todos</p>
+    </form>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th th scope="col" class="th-botao">Visualizar</th>
+                <th scope="col" class="th-botao">Editar</th>
+                <th scope="col" class="th-botao">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contato in contatos %}
+            <tr>
+                <td>{{ contato.nome }}</td>
+                <td class="td-botao">
+                    <button data-bs-toggle="modal" data-bs-target="#modalVisualizar{{ contato.id }}">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                </td>
+                <td class="td-botao">
+                    <button>
+                        <a href="{% url 'contato_edit' contato.id %}">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                    </button>
+                </td>
+                <td class="td-botao">
+                    <button data-bs-toggle="modal" data-bs-target="#modalExcluir{{ contato.id }}">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock main %}

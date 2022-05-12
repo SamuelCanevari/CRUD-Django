@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+
+{% block titulo %}Editar Grupo de Contatos{% endblock titulo %}
+
+{% block main %}
+
+<div id="container-inclusaoContato">
+    <h3>Edição de {{grupoContatos.titulo}}</h3>
+    <form action="{% url 'grupoContatos_edit' grupoContatos.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Editar</button>
+        <a href="{% url 'grupoContatos' %}">Cancelar</a>
+    </form>
+</div>
+
+{% endblock main %}

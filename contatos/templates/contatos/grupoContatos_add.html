@@ -1,0 +1,17 @@
+{% extends 'template.html' %}
+
+{% block titulo %}Criar Grupo de Contatos{% endblock titulo %}
+
+{% block main %}
+
+<div id="container-inclusaoGrupoContatos">
+    <h3>Criar novo Grupo de Contatos</h3>
+    <form action="{% url 'grupoContatos_add' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Criar</button>
+        <a href="{% url 'grupoContatos' %}">Cancelar</a>
+    </form>
+</div>
+
+{% endblock main %}
